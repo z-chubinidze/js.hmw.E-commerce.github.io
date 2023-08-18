@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <title>E-commerce page 2</title>
+</head>
+
+<body>
+    <div class="container-fluid ps-0 pe-0" style="background:rgba(30, 40, 50, 0.05);;min-height: 100vh;">
+        <!--desctop navbar-->
+        <div class="container head-container d-none d-lg-block pe-0 ps-0">
+            <div class="header-box d-flex align-items-start justify-content-between align-items-center">
+                <form>
+                    <div class="d-flex align-items-center gap-4">
+                        <img src="./images/search-icon.png" onclick="sear()">
+                        <input type="search" placeholder="search..." id="search">
+                    </div>
+                </form>
+                <a href="#"> <img src="./images/logo.png" alt=""></a>
+                <div class="rightmenu d-flex align-items-center gap-4">
+                    <a href="#">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="./images/account.png" alt="">
+                            <p class="mb-0">Account</p>
+                        </div>
+                    </a>
+                    <a href="@">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="./images/shopping.png" alt="">
+                            <p class="mb-0">Shopping</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container pe-0 ps-0" style="padding-top: 30px;">
+            <div class="header d-none d-lg-block">
+                <ul class="navbar-na justify-content-between align-items-center d-flex ps-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">Jewelry & Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Clothing & Shoes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Home & Living</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Wedding & Party</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Toys & Entertainment</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Art & Collectibles</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Craft Supplies & Tools</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end desctop navbar-->
+
+        <!--mobine navbar-->
+        <nav class="navbar navbar-expand-lg d-lg-none ">
+            <div class="container-fluid pe-0 ps-0">
+                <div class="container d-flex justify-content-between">
+                    <a class="navbar-brand d-block d-lg-none" href="#"><img src="./images/logo.png" alt=""></a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                                <a href="#">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="./images/account.png" alt="">
+                                        <p class="mb-0 acount">Account</p>
+                                    </div>
+                                </a>
+                            </h5>
+                            <a href="@">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="./images/shopping.png" alt="">
+                                    <p class="mb-0 acount">Shopping</p>
+                                </div>
+                            </a>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 mb-4 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="#">Jewelry & Accessories</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Clothing & Shoes</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#">Home & Living</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#">Wedding & Party</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#">Toys & Entertainment</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#">Art & Collectibles</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#">Craft Supplies & Tools</a>
+                                </li>
+                            </ul>
+                            <form>
+                                <div class="d-flex align-items-center mob-search gap-2">
+                                    <div class="d-flex align-items-center justify-content-center"
+                                        style="width: 50px; height: 36px;background-color: rgba(250, 18, 18, 0.5);">
+                                        <img for="#search" src="./images/search-icon.png" alt="">
+                                    </div>
+                                    <input type="search" id="search" class="form-control">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!--end mobile navbar-->
+        <section class="section-2-page-2">
+            <div class="container-fluid pe-0 ps-0 position-relative ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-7">
+                            <div class="box-1 text-center text-lg-start">
+                                <h1>Collections</h1>
+                                <p>you can explore ans shop many differnt collection
+                                    from various barands here.</p>
+                                <button type="button" class="btn mb-5 mb-lg-0"><img src="./images/button-icon-store.png"
+                                        alt="">shop
+                                    now</button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-5 mb-5 d-none d-lg-block">
+                            <img class="w-100" src="./images/image-1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <img class="flow-1 d-none d-lg-block" src="./images/flow-img-1.png" alt="">
+                <img class="flow-2 d-none d-lg-block" src="./images/flow-img-2.png" alt="">
+            </div>
+
+        </section>
+
+        <section class="section-3-page-2">
+            <div class="container-fluid fluid-5" style="background-color: #FFF; padding-top: 90px;padding-bottom: 140px;">
+                <div class="container cont-5 ps-0 pe-0" style="margin-bottom: 90px;">
+                    <div class="row justify-content-between gy-4">
+                        <div class="col-6 col-lg-2 col-md-4">
+                            <img class="w-100" src="./images/brand-1.png" alt="">
+                        </div>
+                        <div class="col-6 col-lg-2 col-md-4">
+                            <img class="w-100" src="./images/brand--2.png" alt="">
+                        </div>
+                        <div class="col-6 col-lg-2 col-md-4">
+                            <img class="w-100" src="./images/brand-3.png" alt="">
+                        </div>
+                        <div class="col-6 col-lg-2 col-md-4">
+                            <img class="w-100" src="./images/brand--4.png" alt="">
+                        </div>
+                        <div class="col-6 col-lg-2 col-md-4">
+                            <img class="w-100" src="./images/brand-5.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="container cont-4 position-relative" style="margin-bottom: 140px;">
+                    <div class="row gy-4">
+                        <div class="col-12 col-md-6">
+                            <img class="w-100" src="./images/image-category-1.png" alt="">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="row gy-4">
+                                <div class="col-md-6">
+                                    <img class="w-100" src="./images/item-category-2.png" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <img class="w-100" src="./images/item-category-3.png" alt="">
+                                </div>
+                                <div class="col-md-6 d-none d-md-block">
+                                    <img class="w-100" src="./images/item-category-4.png" alt="">
+                                </div>
+                                <div class="col-md-6 d-none d-md-block">
+                                    <img class="w-100" src="./images/item-category-5.png" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <p class="mb-0 explore d-none d-md-block">Explore new and popular styles</p>
+                </div>
+                <h1 class="text-center">Or subscribe to the newsletter</h1>
+                <div class="container axios-container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-8 col-md-6 col-lg-4">
+                            <div class="store-menu justify-content-between d-flex">
+                                <a href="#" class="active">all products</a>
+                                <a href="#">t-shirt</a>
+                                <a href="#">hoodies</a>
+                                <a href="#">jacket</a>
+                            </div>
+
+                        </div>
+                        <div class="col-4">
+                            <button class="btn"><img src="./images/filter-icon.png" alt="">filter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--section using javaScript-->
+                <div class="container">
+                    <div class="row gy-4" id="row">
+
+                    </div>
+                </div>
+                <!--end section using javaScript-->
+            </div>
+        </section>
+
+        <section class="section-4-page-2">
+            <div class="container-fluid cont-4">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="content position-relative">
+                            <img src="./images/zara.png" alt="">
+                            <p>Lustrous yet understated. The new evening
+                                wear collection exclusively offered at the
+                                reopened Giorgio Armani boutique in Los
+                                Angeles.</p>
+                            <button type="button" class="btn btn-primary border-0">see collection</button>
+                            <img class="zara-back" src="./images/Zara_Logo-2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="section-3-page-2 sec-page-2">
+        <div class="container ps-4 pe-4 ps-lg-3 pe-lg-3">
+            <div class="row">
+                <h1 class="text-center">Best sellers</h1>
+                <div class="container axios-container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-8 col-md-6 col-lg-4">
+                            <div class="store-menu justify-content-between d-flex">
+                                <a href="#" class="active">all products</a>
+                                <a href="#">t-shirt</a>
+                                <a href="#">hoodies</a>
+                                <a href="#">jacket</a>
+                            </div>
+
+                        </div>
+                        <div class="col-4">
+                            <button class="btn"><img src="./images/filter-icon.png" alt="">filter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row position-relative gy-4" id="row2">
+
+                <img class="left-errow d-none d-lg-block" src="./images/left-errow.png" alt="">
+                <img class="right-errow  d-none d-lg-block" src="./images/right-errow.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-4-page-2">
+        <div class="container-fluid fluid-3">
+            <div class="container">
+                <h2 class="text-center">Follow products and discounts on Instagram</h2>
+                <div class="row gy-4 " style="margin-bottom: 70px;">
+                    <div class="co-6 col-md-4 col-lg-2">
+                        <img class="w-100" src="./images/image-product-1.png" alt="">
+                    </div>
+                    <div class="co-6 col-md-4 col-lg-2">
+                        <img class="w-100" src="./images/image-product-2.png" alt="">
+                    </div>
+                    <div class="co-6 col-md-4 col-lg-2">
+                        <img class="w-100" src="./images/image-product-3.png" alt="">
+                    </div>
+                    <div class="co-6 col-md-4 col-lg-2">
+                        <img class="w-100" src="./images/image-product-4.png" alt="">
+                    </div>
+                    <div class="co-6 col-md-4 col-lg-2">
+                        <img class="w-100" src="./images/image-product-5.png" alt="">
+                    </div>
+                    <div class="co-6 col-md-4 col-lg-2">
+                        <img class="w-100" src="./images/image-product-6.png" alt="">
+                    </div>
+                </div>
+                <h2 class="text-center">Or subscribe to the newsletter</h2>
+                <div class="w-100 ">
+                    <form action="#" class="w-100 d-flex align-items-center justify-content-center gap-4">
+                        <input class="input-1" type="email" placeholder="Email address...">
+                        <input class="subButton" type="button" value="SUBMIT">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-5-page-2">
+        <div class="container ps-4 pe-4 ps-lg-3 pe-lg-3">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div class="footBox-1 text-center text-lg-start">
+                        <a href="#" class="logo-fot"><img src="./images/logo.png"></a>
+                        <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua</p>
+                        <div class="col-7">
+                            <div class="soc-images d-none d-lg-flex align-items-center justify-content-between">
+                                <a href="#"><img src="./images/facebook.png" alt=""></a>
+                                <a href="#"><img src="./images/tviter.png" alt=""></a>
+                                <a href="#"><img src="./images/in.png" alt=""></a>
+                                <a href="#"><img src="./images/instagram.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-8  d-flex">
+                    <div class="row w-100 gy-5">
+                        <div class="col-6 col-lg-4">
+                            <div class="footBox-2 ">
+                                <h6>CATALOG</h6>
+                                <a href="#">
+                                    <p>Necklaces</p>
+                                </a>
+                                <a href="#">
+                                    <p>hoodies</p>
+                                </a>
+                                <a href="#">
+                                    <p>Jewelry Box</p>
+                                </a>
+                                <a href="#">
+                                    <p>t-shirt</p>
+                                </a>
+                                <a href="#">
+                                    <p>jacket</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-4">
+                            <div class="footBox-2 ">
+                                <h6>ABOUT US</h6>
+                                <a href="#">
+                                    <p>Our Producers</p>
+                                </a>
+                                <a href="#">
+                                    <p>Sitemap</p>
+                                </a>
+                                <a href="#">
+                                    <p>FAQ</p>
+                                </a>
+                                <a href="#">
+                                    <p>About Us</p>
+                                </a>
+                                <a href="#">
+                                    <p>Terms & Conditions</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="footBox-2 ">
+                                <h6>CUSTOMER SERVICES</h6>
+                                <a href="#">
+                                    <p>Contact Us</p>
+                                </a>
+                                <a href="#">
+                                    <p>Track Your Order</p>
+                                </a>
+                                <a href="#">
+                                    <p>Product Care & Repair</p>
+                                </a>
+                                <a href="#">
+                                    <p>Book an Appointment</p>
+                                </a>
+                                <a href="#">
+                                    <p>Shipping & Returns</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-8">
+                    <div class="soc-images mt-5 d-flex d-lg-none align-items-center justify-content-between">
+                        <a href="#"><img src="./images/facebook.png" alt=""></a>
+                        <a href="#"><img src="./images/tviter.png" alt=""></a>
+                        <a href="#"><img src="./images/in.png" alt=""></a>
+                        <a href="#"><img src="./images/instagram.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid fluid-4">
+        <div class="container ps-0 pe-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer d-flex align-items-center justify-content-between">
+                        <p>© 2022 Coral , Inc.</p>
+                        <img class="cards" src="./images/icons_payment 1.png" alt="">
+                        <a href="#"><button type="button" class="btn border-0 bg-transparent">Scroll to top <img
+                                    src="./images/icon-top-errow.png" alt=""></button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
